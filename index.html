@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Summit Eye Care, PA — Advanced eye care solutions in Winston-Salem, NC. Routine exams, cataract surgery, glaucoma treatment, dry eye services, and more."/>
+  <title>Summit Eye Care, PA | Winston-Salem Eye Clinic & Surgery Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy:    #0a2540;
+      --blue:    #1565c0;
+      --sky:     #2196f3;
+      --teal:    #00897b;
+      --teal-lt: #4db6ac;
+      --gold:    #f9a825;
+      --cream:   #f7f9fc;
+      --white:   #ffffff;
+      --text:    #1a2e44;
+      --muted:   #5a6e82;
+      --border:  #dde6ef;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito Sans', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--navy);
+      padding: 0.5rem 5%;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.82rem; color: rgba(255,255,255,0.7);
+    }
+    .topbar a { color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s; }
+    .topbar a:hover { color: var(--gold); }
+    .topbar-left { display: flex; gap: 1.5rem; align-items: center; }
+    .topbar-right { display: flex; gap: 1.5rem; align-items: center; }
+    .topbar .phone { color: var(--gold); font-weight: 600; font-size: 0.9rem; }
+    .topbar .sep { opacity: 0.3; }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--white);
+      padding: 0 5%;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 200;
+      box-shadow: 0 2px 20px rgba(10,37,64,0.1);
+      border-bottom: 3px solid var(--teal);
+    }
+    .nav-logo {
+      padding: 0.9rem 0;
+      display: flex; flex-direction: column;
+    }
+    .nav-logo .logo-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 700;
+      color: var(--navy); line-height: 1;
+    }
+    .nav-logo .logo-main span { color: var(--teal); }
+    .nav-logo .logo-sub {
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted); margin-top: 0.2rem;
+    }
+    .nav-menu { display: flex; gap: 0; list-style: none; height: 100%; }
+    .nav-item { position: relative; }
+    .nav-item > a {
+      display: flex; align-items: center; gap: 0.3rem;
+      padding: 1.4rem 1rem;
+      color: var(--text); text-decoration: none;
+      font-size: 0.88rem; font-weight: 600;
+      letter-spacing: 0.02em;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -3px;
+      transition: color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+    .nav-item > a:hover, .nav-item:hover > a { color: var(--teal); border-color: var(--teal); }
+    .nav-item > a .chevron { font-size: 0.6rem; opacity: 0.5; }
+
+    .dropdown {
+      display: none; position: absolute; top: 100%; left: 0;
+      background: var(--white); min-width: 220px;
+      box-shadow: 0 8px 32px rgba(10,37,64,0.15);
+      border-top: 2px solid var(--teal);
+      z-index: 300;
+    }
+    .nav-item:hover .dropdown { display: block; }
+    .dropdown a {
+      display: block; padding: 0.7rem 1.2rem;
+      color: var(--text); text-decoration: none;
+      font-size: 0.85rem; font-weight: 500;
+      transition: background 0.15s, color 0.15s;
+      border-left: 3px solid transparent;
+    }
+    .dropdown a:hover { background: var(--cream); color: var(--teal); border-left-color: var(--teal); }
+
+    .nav-cta {
+      background: var(--teal); color: var(--white) !important;
+      padding: 0.6rem 1.4rem !important;
+      border-radius: 3px; border-bottom: none !important;
+      margin-bottom: 0 !important; margin-left: 0.5rem;
+      font-size: 0.85rem !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--navy) !important; color: var(--white) !important; }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative; overflow: hidden;
+      min-height: 88vh;
+      background: linear-gradient(135deg, var(--navy) 0%, #0d3b6e 60%, #1565c0 100%);
+      display: flex; align-items: center;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 70% 50%, rgba(0,137,123,0.25) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(21,101,192,0.3) 0%, transparent 50%);
+    }
+    .hero-pattern {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 4rem 5%;
+      max-width: 680px;
+      animation: heroIn 1s ease both;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(0,137,123,0.2); border: 1px solid rgba(77,182,172,0.4);
+      color: var(--teal-lt); padding: 0.4rem 1rem;
+      border-radius: 50px; font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero-badge::before { content: '👁'; font-size: 0.9rem; }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 700; line-height: 1.1;
+      color: var(--white); margin-bottom: 1.2rem;
+    }
+    .hero-title .accent { color: var(--gold); }
+    .hero-sub {
+      font-size: 1.1rem; font-weight: 300;
+      color: rgba(255,255,255,0.75); line-height: 1.75;
+      max-width: 520px; margin-bottom: 2.5rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--teal); color: var(--white);
+      padding: 0.9rem 2rem; border-radius: 3px;
+      font-size: 0.9rem; font-weight: 700;
+      letter-spacing: 0.03em; text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--teal-lt); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.4);
+      padding: 0.9rem 2rem; border-radius: 3px;
+      font-size: 0.9rem; font-weight: 600;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
+    .hero-stats {
+      position: absolute; bottom: 3rem; right: 5%;
+      display: flex; gap: 1.5rem; z-index: 2;
+      animation: heroIn 1s 0.3s ease both;
+    }
+    .hero-stat {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 1.2rem 1.6rem; border-radius: 4px;
+      text-align: center;
+    }
+    .hero-stat .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700; color: var(--gold);
+      line-height: 1;
+    }
+    .hero-stat .lbl { font-size: 0.75rem; color: rgba(255,255,255,0.6); margin-top: 0.3rem; }
+
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      background: var(--navy);
+      display: grid; grid-template-columns: repeat(3,1fr);
+    }
+    .cta-card {
+      padding: 2rem 2.5rem;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; gap: 1.2rem;
+      text-decoration: none;
+      transition: background 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .cta-card:last-child { border-right: none; }
+    .cta-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(0,137,123,0.15), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .cta-card:hover::before { opacity: 1; }
+    .cta-card:hover { background: rgba(255,255,255,0.04); }
+    .cta-icon {
+      font-size: 2rem; flex-shrink: 0;
+      width: 56px; height: 56px;
+      background: rgba(0,137,123,0.2); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cta-card h3 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; }
+    .cta-card p { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+    .cta-arrow { margin-left: auto; color: var(--teal-lt); font-size: 1.2rem; flex-shrink: 0; opacity: 0; transform: translateX(-8px); transition: all 0.25s; }
+    .cta-card:hover .cta-arrow { opacity: 1; transform: translateX(0); }
+
+    /* ── SECTIONS GENERAL ── */
+    section { padding: 5.5rem 5%; }
+    .section-eyebrow {
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700; color: var(--navy);
+      line-height: 1.2; margin-bottom: 1rem;
+    }
+    .section-rule {
+      width: 50px; height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--sky));
+      margin-bottom: 1.8rem;
+    }
+    .section-sub {
+      font-size: 1rem; color: var(--muted);
+      line-height: 1.75; max-width: 580px;
+    }
+
+    /* ── SERVICES GRID ── */
+    #services { background: var(--cream); }
+    .services-header { text-align: center; margin-bottom: 3.5rem; }
+    .services-header .section-rule { margin: 0 auto 1.8rem; }
+    .services-header .section-sub { margin: 0 auto; }
+
+    .services-grid {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 1.2rem;
+    }
+    .service-card {
+      background: var(--white);
+      border-radius: 4px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-top: 3px solid transparent;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+    }
+    .service-card:hover {
+      border-top-color: var(--teal);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 36px rgba(10,37,64,0.1);
+    }
+    .service-icon {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: linear-gradient(135deg, rgba(0,137,123,0.12), rgba(21,101,192,0.08));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+    }
+    .service-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); line-height: 1.3; }
+    .service-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+    .service-link {
+      font-size: 0.78rem; font-weight: 700; color: var(--teal);
+      letter-spacing: 0.06em; text-transform: uppercase;
+      margin-top: auto; padding-top: 0.5rem;
+    }
+
+    /* ── WELCOME ── */
+    #welcome { background: var(--white); }
+    .welcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .welcome-text .section-sub { margin-bottom: 1.5rem; }
+    .welcome-text p { font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.2rem; }
+    .welcome-text p strong { color: var(--text); font-weight: 600; }
+    .welcome-visual {
+      position: relative;
+    }
+    .welcome-card {
+      background: linear-gradient(135deg, var(--navy) 0%, #0d3b6e 100%);
+      border-radius: 8px; padding: 3rem;
+      position: relative; overflow: hidden;
+    }
+    .welcome-card::before {
+      content: '';
+      position: absolute; top: -60px; right: -60px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: rgba(0,137,123,0.2);
+    }
+    .welcome-card .big-icon { font-size: 4rem; margin-bottom: 1.5rem; display: block; }
+    .welcome-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; font-weight: 700;
+      color: var(--white); margin-bottom: 1rem; line-height: 1.3;
+    }
+    .welcome-card p { font-size: 0.92rem; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 1.5rem; }
+    .welcome-stats { display: flex; gap: 1.5rem; margin-top: 1.5rem; }
+    .wstat { text-align: center; }
+    .wstat .n { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--gold); }
+    .wstat .l { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 0.2rem; }
+
+    /* ── PROVIDERS ── */
+    #providers { background: var(--cream); }
+    .providers-header { text-align: center; margin-bottom: 3.5rem; }
+    .providers-header .section-rule { margin: 0 auto 1.8rem; }
+    .providers-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; max-width: 900px; margin: 0 auto; }
+    .provider-card {
+      background: var(--white); border-radius: 4px;
+      border: 1px solid var(--border);
+      overflow: hidden; text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .provider-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(10,37,64,0.12); }
+    .provider-photo {
+      height: 220px;
+      background: linear-gradient(135deg, #0a2540, #1565c0);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem;
+      position: relative; overflow: hidden;
+    }
+    .provider-photo::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 60px;
+      background: linear-gradient(transparent, rgba(10,37,64,0.3));
+    }
+    .provider-info { padding: 1.5rem; }
+    .provider-info h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
+    .provider-info .title { font-size: 0.82rem; color: var(--teal); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.7rem; }
+    .provider-info p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: var(--navy); position: relative; overflow: hidden; }
+    #testimonials::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 80% 20%, rgba(0,137,123,0.2) 0%, transparent 60%);
+    }
+    .testi-header { text-align: center; margin-bottom: 3.5rem; position: relative; z-index: 1; }
+    .testi-header .section-eyebrow { color: var(--teal-lt); }
+    .testi-header .section-title { color: var(--white); }
+    .testi-header .section-rule { margin: 0 auto 1rem; }
+    .google-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+      padding: 0.5rem 1.2rem; border-radius: 50px; margin-bottom: 1rem;
+      font-size: 0.85rem; color: rgba(255,255,255,0.8);
+    }
+    .stars { color: var(--gold); letter-spacing: 0.05em; }
+
+    .testi-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem;
+      position: relative; z-index: 1;
+    }
+    .testi-card {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px; padding: 2rem;
+      transition: background 0.3s;
+    }
+    .testi-card:hover { background: rgba(255,255,255,0.1); }
+    .testi-quote { font-size: 2.5rem; color: var(--teal-lt); line-height: 1; margin-bottom: 0.5rem; opacity: 0.6; }
+    .testi-card p { font-size: 0.92rem; color: rgba(255,255,255,0.75); line-height: 1.8; margin-bottom: 1.2rem; }
+    .testi-author { font-size: 0.82rem; font-weight: 700; color: var(--gold); }
+    .testi-stars { color: var(--gold); font-size: 0.8rem; margin-bottom: 0.5rem; }
+
+    /* ── SURGERY CENTER BANNER ── */
+    #surgery {
+      background: linear-gradient(135deg, var(--teal) 0%, #00695c 100%);
+      padding: 4rem 5%;
+    }
+    .surgery-inner { display: flex; align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap; }
+    .surgery-text h2 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--white); margin-bottom: 0.6rem; }
+    .surgery-text p { font-size: 1rem; color: rgba(255,255,255,0.8); max-width: 480px; line-height: 1.7; }
+    .surgery-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-white {
+      background: var(--white); color: var(--teal);
+      padding: 0.85rem 2rem; border-radius: 3px;
+      font-size: 0.9rem; font-weight: 700; text-decoration: none;
+      transition: transform 0.2s; display: inline-block;
+    }
+    .btn-white:hover { transform: translateY(-2px); }
+    .btn-ghost-white {
+      background: transparent; color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.5);
+      padding: 0.85rem 2rem; border-radius: 3px;
+      font-size: 0.9rem; font-weight: 600; text-decoration: none;
+      transition: border-color 0.2s; display: inline-block;
+    }
+    .btn-ghost-white:hover { border-color: var(--white); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--cream); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+    .contact-info h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--navy); margin-bottom: 1rem; }
+    .contact-info p { font-size: 1rem; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; }
+    .contact-cards { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-left: 4px solid var(--teal);
+      padding: 1.2rem 1.5rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+    }
+    .contact-card .ci { font-size: 1.4rem; flex-shrink: 0; }
+    .contact-card h4 { font-size: 0.8rem; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.3rem; }
+    .contact-card p, .contact-card a { font-size: 0.95rem; color: var(--text); text-decoration: none; line-height: 1.6; }
+    .contact-card a:hover { color: var(--teal); }
+
+    .contact-form-wrap { background: var(--white); border: 1px solid var(--border); padding: 2.5rem; }
+    .contact-form-wrap h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 0.4rem; }
+    .contact-form-wrap .form-sub { font-size: 0.88rem; color: var(--muted); margin-bottom: 1.8rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-size: 0.8rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; letter-spacing: 0.04em; text-transform: uppercase; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border); border-radius: 2px;
+      font-family: 'Nunito Sans', sans-serif; font-size: 0.92rem;
+      color: var(--text); background: var(--cream);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--teal); background: var(--white); }
+    .form-group textarea { height: 100px; resize: none; }
+    .form-submit {
+      width: 100%; background: var(--teal); color: var(--white);
+      border: none; padding: 1rem;
+      font-family: 'Nunito Sans', sans-serif; font-size: 0.95rem; font-weight: 700;
+      letter-spacing: 0.04em; cursor: pointer;
+      border-radius: 2px; transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--navy); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--navy); color: rgba(255,255,255,0.65); }
+    .footer-top {
+      padding: 4rem 5%;
+      display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand .logo-main { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--white); }
+    .footer-brand .logo-main span { color: var(--teal-lt); }
+    .footer-brand p { font-size: 0.88rem; line-height: 1.75; margin-top: 0.8rem; margin-bottom: 1.2rem; }
+    .footer-social { display: flex; gap: 0.6rem; }
+    .social-btn {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; text-decoration: none; color: rgba(255,255,255,0.7);
+      transition: background 0.2s, color 0.2s;
+    }
+    .social-btn:hover { background: var(--teal); color: var(--white); }
+    .footer-col h4 { font-size: 0.8rem; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 1.2rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+    .footer-col a { font-size: 0.85rem; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--teal-lt); }
+    .footer-bottom {
+      padding: 1.4rem 5%;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.78rem;
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; margin-left: 1.5rem; }
+    .footer-bottom a:hover { color: rgba(255,255,255,0.7); }
+
+    /* ── SCROLL ANIMATIONS ── */
+    @keyframes heroIn { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:none; } }
+    .reveal { opacity:0; transform:translateY(28px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+    .reveal-l { opacity:0; transform:translateX(-32px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+    .reveal-r { opacity:0; transform:translateX(32px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.vis, .reveal-l.vis, .reveal-r.vis { opacity:1; transform:none; }
+    .d1{transition-delay:0.05s} .d2{transition-delay:0.12s} .d3{transition-delay:0.19s} .d4{transition-delay:0.26s}
+    .d5{transition-delay:0.33s} .d6{transition-delay:0.40s} .d7{transition-delay:0.47s} .d8{transition-delay:0.54s}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1024px){
+      .services-grid{grid-template-columns:repeat(2,1fr);}
+      .footer-top{grid-template-columns:1fr 1fr;}
+    }
+    @media(max-width:768px){
+      .topbar{display:none;}
+      .nav-menu{display:none;}
+      .nav-cta{display:block !important;}
+      .cta-strip{grid-template-columns:1fr;}
+      .welcome-grid,.contact-grid,.testi-grid,.providers-grid{grid-template-columns:1fr;}
+      .hero-stats{display:none;}
+      .form-row{grid-template-columns:1fr;}
+      .footer-top{grid-template-columns:1fr;}
+    }
+    @media(max-width:480px){
+      .services-grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <span>📍 3073 Trenwest Drive, Winston-Salem, NC 27103</span>
+      <span class="sep">|</span>
+      <span>Mon – Fri: 8AM – 5PM</span>
+    </div>
+    <div class="topbar-right">
+      <a href="#">Patient Portal</a>
+      <span class="sep">|</span>
+      <a href="#">Pay Bill</a>
+      <span class="sep">|</span>
+      <a href="tel:3367650960" class="phone">📞 336.765.0960</a>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <div class="logo-main"><span>Summit</span> Eye Care</div>
+      <div class="logo-sub">PA · Winston-Salem, NC</div>
+    </div>
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="#">About <span class="chevron">▾</span></a>
+        <div class="dropdown">
+          <a href="#">Our Practice</a>
+          <a href="#">Our Providers</a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="#services">Eye Care Services <span class="chevron">▾</span></a>
+        <div class="dropdown">
+          <a href="#">Routine Eye Exams</a>
+          <a href="#">Diabetic Exams</a>
+          <a href="#">Dry Eye Services</a>
+          <a href="#">Cataract Evaluation</a>
+          <a href="#">Glaucoma</a>
+          <a href="#">Macular Degeneration</a>
+          <a href="#">View All Services</a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="#">Surgery Center <span class="chevron">▾</span></a>
+        <div class="dropdown">
+          <a href="#">About the Center</a>
+          <a href="#">Cataract Surgery</a>
+          <a href="#">Vision Correction</a>
+          <a href="#">Glaucoma Treatment</a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="#">Aesthetic <span class="chevron">▾</span></a>
+        <div class="dropdown">
+          <a href="#">Summit Med Spa</a>
+          <a href="#">Morpheus 8</a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="#">Eyewear <span class="chevron">▾</span></a>
+        <div class="dropdown">
+          <a href="#">Optical Shop</a>
+          <a href="#">Online Store</a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="#">Patient Resources <span class="chevron">▾</span></a>
+        <div class="dropdown">
+          <a href="#">Patient Forms</a>
+          <a href="#">Financing Options</a>
+          <a href="#">FAQs</a>
+          <a href="#">Reviews &amp; Testimonials</a>
+          <a href="#">Blog</a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="#contact">Contact</a></li>
+      <li class="nav-item"><a href="#contact" class="nav-cta">Request Appointment</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-pattern"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Advanced Eye Care Solutions</div>
+      <h1 class="hero-title">See Life<br>at Its <span class="accent">Clearest</span></h1>
+      <p class="hero-sub">Comprehensive eye care for every stage of life — from routine exams to state-of-the-art surgical care, delivered with genuine compassion by Winston-Salem's trusted eye care team.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Request an Appointment</a>
+        <a href="#services" class="btn-outline">Explore Our Services</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">770+</div>
+        <div class="lbl">Google Reviews</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">10+</div>
+        <div class="lbl">Years Serving WS</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">3</div>
+        <div class="lbl">Expert Providers</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <a href="#services" class="cta-card">
+      <div class="cta-icon">💧</div>
+      <div>
+        <h3>Dry Eye Treatments</h3>
+        <p>Advanced therapies for lasting relief from dry, irritated eyes</p>
+      </div>
+      <span class="cta-arrow">→</span>
+    </a>
+    <a href="#surgery" class="cta-card">
+      <div class="cta-icon">🔬</div>
+      <div>
+        <h3>Surgery Center</h3>
+        <p>State-of-the-art surgical care on-site for your convenience</p>
+      </div>
+      <span class="cta-arrow">→</span>
+    </a>
+    <a href="#services" class="cta-card">
+      <div class="cta-icon">✨</div>
+      <div>
+        <h3>Aesthetic Treatments</h3>
+        <p>Non-surgical treatments to refresh and enhance your natural look</p>
+      </div>
+      <span class="cta-arrow">→</span>
+    </a>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="services-header reveal">
+      <p class="section-eyebrow">What We Offer</p>
+      <h2 class="section-title">Featured Eye Care Services</h2>
+      <div class="section-rule"></div>
+      <p class="section-sub">From comprehensive exams to specialized surgical procedures, our team provides expert care tailored to your unique vision needs.</p>
+    </div>
+    <div class="services-grid">
+      <a href="#" class="service-card reveal d1">
+        <div class="service-icon">👁️</div>
+        <h3>Routine Eye Exam</h3>
+        <p>Comprehensive vision and eye health evaluations for all ages</p>
+        <span class="service-link">Learn More →</span>
+      </a>
+      <a href="#" class="service-card reveal d2">
+        <div class="service-icon">🩺</div>
+        <h3>Diabetic Eye Exam</h3>
+        <p>Specialized monitoring to protect vision affected by diabetes</p>
+        <span class="service-link">Learn More →</span>
+      </a>
+      <a href="#" class="service-card reveal d3">
+        <div class="service-icon">💧</div>
+        <h3>Dry Eye Services</h3>
+        <p>Advanced diagnostics and treatments for chronic dry eye relief</p>
+        <span class="service-link">Learn More →</span>
+      </a>
+      <a href="#" class="service-card reveal d4">
+        <div class="service-icon">🏥</div>
+        <h3>Cataract Evaluation</h3>
+        <p>Early detection and complete evaluation for cataract treatment</p>
+        <span class="service-link">Learn More →</span>
+      </a>
+      <a href="#" class="service-card reveal d5">
+        <div class="service-icon">🎯</div>
+        <h3>Glaucoma Treatment</h3>
+        <p>Monitoring and treatment to preserve vision from glaucoma</p>
+        <span class="service-link">Learn More →</span>
+      </a>
+      <a href="#" class="service-card reveal d6">
+        <div class="service-icon">🌟</div>
+        <h3>Vision Correction</h3>
+        <p>LASIK and surgical options to reduce dependence on glasses</p>
+        <span class="service-link">Learn More →</span>
+      </a>
+      <a href="#" class="service-card reveal d7">
+        <div class="service-icon">👓</div>
+        <h3>Optical Shop</h3>
+        <p>Premium eyewear with expert fitting and a wide frame selection</p>
+        <span class="service-link">Learn More →</span>
+      </a>
+      <a href="#" class="service-card reveal d8">
+        <div class="service-icon">📋</div>
+        <h3>View All Services</h3>
+        <p>Explore our full range of eye care and aesthetic treatments</p>
+        <span class="service-link">View All →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- WELCOME -->
+  <section id="welcome">
+    <div class="welcome-grid">
+      <div class="welcome-text reveal-l">
+        <p class="section-eyebrow">About Our Practice</p>
+        <h2 class="section-title">Welcome to Summit Eye Care</h2>
+        <div class="section-rule"></div>
+        <p>For over a decade, <strong>Dr. Vic Khemsara</strong> and our team of eye care professionals have been serving patients of all ages with kindness and compassion in Winston-Salem, NC.</p>
+        <p>We provide the most advanced examination procedures, therapies, and surgical procedures. We are committed to creating an exceptional experience for our patients, treating them as family members whose health and well-being is our highest priority.</p>
+        <p>Whether your visit is for routine vision tests or treatment of conditions like cataracts, dry eye, and glaucoma, we'll take the time to fully explain your diagnosis and treatment plan, answering all of your questions to your satisfaction.</p>
+        <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="#" class="btn-primary">About Our Practice</a>
+          <a href="#providers" class="btn-outline" style="color:var(--navy);border-color:var(--border);">Meet Our Providers</a>
+        </div>
+      </div>
+      <div class="welcome-visual reveal-r">
+        <div class="welcome-card">
+          <span class="big-icon">🏆</span>
+          <h3>Trusted Eye Care in Winston-Salem</h3>
+          <p>Our state-of-the-art facility includes an on-site surgery center on the 2nd floor, designed for the comfort, convenience, and safety of our patients and their families.</p>
+          <a href="#contact" class="btn-white">Schedule Your Visit</a>
+          <div class="welcome-stats">
+            <div class="wstat"><div class="n">770+</div><div class="l">Google Reviews</div></div>
+            <div class="wstat"><div class="n">10+</div><div class="l">Years of Care</div></div>
+            <div class="wstat"><div class="n">5★</div><div class="l">Avg. Rating</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVIDERS -->
+  <section id="providers">
+    <div class="providers-header reveal">
+      <p class="section-eyebrow">Our Team</p>
+      <h2 class="section-title">Meet Our Providers</h2>
+      <div class="section-rule"></div>
+      <p class="section-sub">Our experienced providers are committed to delivering personalized, compassionate care to every patient.</p>
+    </div>
+    <div class="providers-grid">
+      <div class="provider-card reveal d1">
+        <div class="provider-photo">👨‍⚕️</div>
+        <div class="provider-info">
+          <h3>Dr. Keith Biggs</h3>
+          <div class="title">Ophthalmologist</div>
+          <p>Specializing in comprehensive eye care and surgical procedures with years of dedicated patient service.</p>
+        </div>
+      </div>
+      <div class="provider-card reveal d2">
+        <div class="provider-photo">👨‍⚕️</div>
+        <div class="provider-info">
+          <h3>Dr. Vic Khemsara</h3>
+          <div class="title">Ophthalmologist, MD</div>
+          <p>Founder of Summit Eye Care with over a decade of expert surgical and clinical eye care experience.</p>
+        </div>
+      </div>
+      <div class="provider-card reveal d3">
+        <div class="provider-photo">👨‍⚕️</div>
+        <div class="provider-info">
+          <h3>Henry Black, PA-C</h3>
+          <div class="title">Physician Assistant</div>
+          <p>Providing compassionate clinical support and thorough patient evaluations across all eye conditions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="testi-header reveal">
+      <p class="section-eyebrow">Patient Reviews</p>
+      <h2 class="section-title">What Our Patients Say</h2>
+      <div class="section-rule"></div>
+      <div class="google-badge">
+        <span class="stars">★★★★★</span>
+        &nbsp;Over 770+ Google Reviews
+      </div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal d1">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p>From start to finish, my visit with Summit Eye Care was great. The entire staff showed me nothing but the utmost care and concern. Prior to every test and procedure, I was given a complete explanation of what to expect.</p>
+        <div class="testi-author">— Bonnie C.</div>
+      </div>
+      <div class="testi-card reveal d2">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p>From the time I stepped into the office until I got my last surgery, everyone at Summit Eye Care was top notch. They treated me with the utmost care and respect. I will highly recommend them for their services without question.</p>
+        <div class="testi-author">— Tim B.</div>
+      </div>
+      <div class="testi-card reveal d3">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p>Not your usual eye exam where you feel like just a number. The facility is super clean, I felt so comfortable. Dr. Khemsara and his team treated me with great care. They actually have genuine concern for your eye health.</p>
+        <div class="testi-author">— K1J W.</div>
+      </div>
+      <div class="testi-card reveal d4">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p>This office is fantastic! Sheila and Alyssa in the optical department are awesome, and the whole staff is friendly. Easy to get in and out, and great selection of eyewear! Highly recommend Summit Eye!</p>
+        <div class="testi-author">— Marie D.</div>
+      </div>
+      <div class="testi-card reveal d5">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p>I brought in my grandparents for a cataract evaluation and I am so happy they were received by Leslie. She addressed all their concerns, was thorough, knowledgeable, and very kind. She made my grandparents feel at home.</p>
+        <div class="testi-author">— Erick O.</div>
+      </div>
+      <div class="testi-card reveal d6">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p>Summit Eye Care goes above and beyond for every patient. The level of professionalism combined with genuine warmth makes this practice truly stand out. I wouldn't trust my eye health to anyone else in the Triad.</p>
+        <div class="testi-author">— Sarah M.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SURGERY CENTER BANNER -->
+  <section id="surgery">
+    <div class="surgery-inner">
+      <div class="surgery-text reveal-l">
+        <h2>On-Site Surgery Center</h2>
+        <p>Our state-of-the-art specialty surgery center is located just upstairs on the 2nd floor, designed for the comfort, convenience, and safety of our patients and their families. Cataract surgery, vision correction, and glaucoma treatment — all in one place.</p>
+      </div>
+      <div class="surgery-actions reveal-r">
+        <a href="#" class="btn-white">Learn About the Center</a>
+        <a href="#contact" class="btn-ghost-white">Request a Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-grid">
+      <div class="contact-info reveal-l">
+        <p class="section-eyebrow">Get In Touch</p>
+        <h2 class="section-title">Contact Us</h2>
+        <div class="section-rule"></div>
+        <p>We'd love to hear from you. Reach out to schedule an appointment, ask a question, or learn more about our services. Our friendly team is here to help.</p>
+        <div class="contact-cards">
+          <div class="contact-card">
+            <span class="ci">📍</span>
+            <div>
+              <h4>Main Office</h4>
+              <p>3073 Trenwest Drive, 1st Floor<br>Winston-Salem, NC 27103</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="ci">🏥</span>
+            <div>
+              <h4>Surgery Center</h4>
+              <p>3073 Trenwest Drive, 2nd Floor<br>Winston-Salem, NC 27103</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="ci">📞</span>
+            <div>
+              <h4>Phone</h4>
+              <a href="tel:3367650960">336.765.0960</a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="ci">🕐</span>
+            <div>
+              <h4>Office Hours</h4>
+              <p>Monday – Friday: 8:00 AM – 5:00 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap reveal-r">
+        <h3>Request an Appointment</h3>
+        <p class="form-sub">Fill out the form below and our team will contact you shortly to confirm your visit.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="John"/>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Smith"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" placeholder="336-000-0000"/>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="you@email.com"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Service Needed</label>
+          <select>
+            <option value="">Select a service...</option>
+            <option>Routine Eye Exam</option>
+            <option>Diabetic Eye Exam</option>
+            <option>Dry Eye Evaluation</option>
+            <option>Cataract Evaluation</option>
+            <option>Glaucoma</option>
+            <option>Surgical Consultation</option>
+            <option>Aesthetic Treatment</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message (Optional)</label>
+          <textarea placeholder="Any additional information..."></textarea>
+        </div>
+        <button class="form-submit">Send Appointment Request</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo-main"><span>Summit</span> Eye Care, PA</div>
+        <p>Providing advanced, compassionate eye care to Winston-Salem and the surrounding Triad communities for over a decade.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn">f</a>
+          <a href="#" class="social-btn">in</a>
+          <a href="#" class="social-btn">g</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Eye Care Services</h4>
+        <ul>
+          <li><a href="#">Routine Eye Exams</a></li>
+          <li><a href="#">Diabetic Exams</a></li>
+          <li><a href="#">Dry Eye Services</a></li>
+          <li><a href="#">Cataract Evaluation</a></li>
+          <li><a href="#">Glaucoma</a></li>
+          <li><a href="#">Macular Degeneration</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Surgery Center</h4>
+        <ul>
+          <li><a href="#">About the Center</a></li>
+          <li><a href="#">Cataract Surgery</a></li>
+          <li><a href="#">Vision Correction</a></li>
+          <li><a href="#">Glaucoma Treatment</a></li>
+          <li><a href="#">Aesthetic / Med Spa</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Patient Resources</h4>
+        <ul>
+          <li><a href="#">Patient Forms</a></li>
+          <li><a href="#">Financing Options</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Leave a Review</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Online Store</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Summit Eye Care, PA. All Rights Reserved.</span>
+      <div>
+        <a href="#">Accessibility</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const els = document.querySelectorAll('.reveal, .reveal-l, .reveal-r');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('vis'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(el => obs.observe(el));
+
+    // Form submit feedback
+    document.querySelector('.form-submit').addEventListener('click', function(){
+      this.textContent = '✓ Request Sent! We\'ll be in touch soon.';
+      this.style.background = 'var(--navy)';
+      this.disabled = true;
+    });
+  </script>
+</body>
+</html>
